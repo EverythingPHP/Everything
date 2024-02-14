@@ -23,3 +23,11 @@ function deps_update(){
     file_put_contents('deps/INDEX.db', file_get_contents('https://raw.githubusercontent.com/EverythingPHP/Storage/main/INDEX.db'));
     echo "Done updating.\n";
 }
+
+function input(string $prompt = null): string
+{
+    echo $prompt;
+    $handle = fopen("php://stdin", "rb");
+    $output = fgets($handle);
+    return trim($output);
+}
