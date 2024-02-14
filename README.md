@@ -9,9 +9,8 @@ It's a bundle of tools, if used combined, kinda create a framework-based site, b
 # Structure
 This repo mostly contains tools, or dependencies to Everything.
 
-Templates, and package manager dependency indexes are specified in [Storage](https://github.com/EverythingPHP/Storage) repository.
-Modules made by Everything for Everything, will be located in [Modules](https://github.com/EverythingPHP/Modules) repository.
-
+- Templates, and package manager dependency indexes are specified in [Storage](https://github.com/EverythingPHP/Storage) repository.
+- Modules made by Everything for Everything, will be located in [Modules](https://github.com/EverythingPHP/Modules) repository.
 
 # What is a file "something.php"?
 Check the wiki. Tools are documented in the wiki.
