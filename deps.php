@@ -57,7 +57,7 @@ switch($operation){
 	unlink($zip);
 	echo "Downloaded the main package, adding to autoload\n";
 	$al = (file_exists($al_file)) ? file_get_contents($al_file) : '';
-	file_put_contents($al_file, $al."\n<?php /* MARK_".$package['name']." */  ?>\n\n".file_get_contents($package['meta_url'])."\n<?php /* END_".$package['name']." */  ?>");
+	file_put_contents($al_file, trim($al."\n<?php /* MARK_".$package['name']." */  ?>".file_get_contents($package['meta_url'])."<?php /* END_".$package['name']." */  ?>"));
 	echo "Package ".$package['name']." is now installed.\n";
 	break;
     case 'remove':
@@ -69,7 +69,7 @@ switch($operation){
 	    $file = file_get_contents($al_file);
 	    $head = "<?php /* MARK_".basename($arg)." */  ?>";
 	    $tail = "<?php /* END_".basename($arg)." */  ?>";
-	    $file = str_replace([explode($tail, explode($head, $file)[1])[0], $head, $tail], '', $file);
+	    $file = trim(str_replace([explode($tail, explode($head, $file)[1])[0], $head, $tail], '', $file));
 	    file_put_contents($al_file, $file);
 	}catch(Throwable $e){}
 	echo "Done.\n";
